@@ -19,17 +19,17 @@ pygame.mixer.music.load("noise2.wav")
 pygame.mixer.music.play()
 
 for i in xrange(frames):
-    current_frame = wave_file.readframes(frames)
+    current_frame = wave_file.readframes(1)
     ham = (int(struct.unpack("<h", current_frame)[0]))
     list.append(ham)
     if ham == 0:
        node += 1
-    if ham > max_amp:
+    if ham > max_amp :
         max_amp = ham
-    if ham < min_amp:
-        min_amp = ham
 print list[100]
 for i in xrange(frames):
     update = list[i]
     list[i] = update *2
 print list[100]
+print node
+print max_amp
